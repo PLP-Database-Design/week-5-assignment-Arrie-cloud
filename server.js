@@ -9,12 +9,13 @@ const db= mysql.createConnection({
     host:process.env.DB_HOST,
     user:process.env.DB_USERNAME,
     password:process.env.DB_PASSWORD,
-    database:process.env.DB_NAME
+    database:process.env.DB_NAME,
+    port:"3306"
 });
 // check for connection errors
 db.connect((err) => {
     // if not connected
-    if (err) return console.log("Error connecting to mysql");
+    if (err) return console.log("Error connecting to mysql", err);
     // if connected
     console.log("connected to mysql as id: ", db.threadId);
 });
